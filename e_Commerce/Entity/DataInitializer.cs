@@ -28,7 +28,7 @@ namespace e_Commerce.Entity
             {
                 new Product() {Name="Canon" , Description="Categories Of Cameras" , Price=200 , Stock=100 , IsHome = true , IsFeatured=false , IsApproved=true , Slider=true , CategoryId=1 ,Image="1.jpg"},
                 new Product() {Name="Asus" , Description="Categories Of Pc" , Price=2000 , Stock=10 , IsHome = true , IsFeatured=true , IsApproved=true , Slider=true , CategoryId=3 ,Image="2.jpg"},
-                new Product() {Name="Iphone" , Description="Categories Of Telephone" , Price=7000 , Stock=5 , IsHome = false , IsFeatured=true , IsApproved=true , Slider=false , CategoryId=2 ,Image="3.jpg"},
+                new Product() {Name="Iphone" , Description="Categories Of Telephone" , Price=7000 , Stock=5 , IsHome = false , IsFeatured=true , IsApproved=false , Slider=false , CategoryId=2 ,Image="3.jpg"},
 
             };
             foreach (var p in prod)

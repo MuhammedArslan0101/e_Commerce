@@ -14,16 +14,16 @@ namespace e_Commerce.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(db.products.Where(i=> i.IsHome && i.IsApproved).ToList());
         }
 
         public ActionResult Product()
         {
-            return View();
+            return View(db.products.ToList());
         }
-        public ActionResult ProductDetails()
+        public ActionResult ProductDetails(int id)
         {
-            return View();
+            return View(db.products.Where(i => i.Id == id).FirstOrDefault());
         }
     }
 }
