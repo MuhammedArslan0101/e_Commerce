@@ -1,0 +1,56 @@
+﻿@model e_Commerce.Entity.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br/>
+    <div class="col-md-12" style="padding-right: 50px;">
+        <div class="thumbnail" style="width:845px;">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"> <a href="/Category/Index"> Category List </a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+                </ol>
+            </nav>
+            <section class="content">
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <h4>Category</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                        <hr/>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+
+                    </dl>
+                    <hr/>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color" >
+                            <input type="submit" value="Delete" class="btn btn-danger" /> |
+                            <a class="btn btn-warning" href="@Url.Action("Index")"> Back to list</a>
+                        </div>
+                    }
+                </div>
+
+            </section>
+            </div>
+        </div>
+              
+              
