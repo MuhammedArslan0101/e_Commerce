@@ -1,0 +1,94 @@
+﻿@model IEnumerable<e_Commerce.Entity.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <a class="btn btn-primary" href="@Url.Action("Create")" style="float:right ; width: 225px; display: inline-block; overflow: auto; white-space: nowrap; margin: 0px auto; border: 1px red solid;"> Create</a>
+                        <h3 class="box-title">Products List</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body"  >
+                        <table id="example1" class="table table-bordered table-striped" >
+                            <thead>
+                                <tr >
+                                    <th>images</th>
+                                    <th>Name</th>
+                                    <th>Category Name</th>
+                                    <th>Display Home</th>
+                                    <th>Display Populer</th>
+                                    <th>Approved</th>
+                                    <th>Operation</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr style="text-align:center;">
+                                    <td><img src="~/Content/images/@item.Image" width="85" height="70" /></td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Category.Name</td>
+                                    <td>
+                                        @if (item.IsHome)
+                                        {
+                                            <label class="label label-success"><i class="fa fa-fw fa-check-circle-o"></i> Yes</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="label label-danger"><i class="fa fa-fw fa-times-circle"></i> No</label>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.IsFeatured)
+                                        {
+                                            <label class="label label-success"><i class="fa fa-fw fa-check-circle-o"></i> Yes</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="label label-danger"><i class="fa fa-fw fa-times-circle"></i> No</label>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.IsApproved)
+                                        {
+                                            <label class="label label-success"><i class="fa fa-fw fa-check-circle-o"></i> Yes</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="label label-danger"><i class="fa fa-fw fa-times-circle"></i> No</label>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary" href="@Url.Action("Edit" , new { id = item.Id })"> <i class="fa fa-fw fa-edit"></i> Edit</a>
+                                        <a class="btn btn-danger" href="@Url.Action("Delete" , new { id = item.Id })"> <i class="fa fa-fw fa-trash-o"></i> Delete</a>
+                                    </td>
+                                </tr>
+                                }
+
+
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <th>images</th>
+                                    <th>Name</th>
+                                    <th>Category Name</th>
+                                    <th>Display Home</th>
+                                    <th>Display Populer</th>
+                                    <th>Approved</th>
+                                    <th>Operation</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section>

@@ -145,15 +145,52 @@
                 <ul class="sidebar-menu">
                     <li class="header">MAIN NAVIGATION</li>
 
-                    <li class="treeview active">
+                    <li class="treeview">
+                        <a href="/Home/Index">
+                            <i class="fa fa-table"></i> <span>Home</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                     
+                    </li>
+
+                    <li class="treeview">
                         <a href="#">
                             <i class="fa fa-table"></i> <span>Tables</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/Category/Index"><i class="fa fa-circle-o"></i> Category</a></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-table"></i> <span>Cateogry</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Category/Index"><i class="fa fa-circle-o"></i>List Category</a>
+                                    <li><a href="/Category/add"><i class="fa fa-circle-o"></i> Add Category</a>
+                                    <li><a href="/Category/Edit"><i class="fa fa-circle-o"></i> Edit Category</a>
+                                    <li><a href="/Category/Delete"><i class="fa fa-circle-o"></i> Delete Category</a>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-table"></i> <span>Products</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/Product/Index"><i class="fa fa-circle-o"></i>List Product</a>
+                                    <li><a href="/Product/add"><i class="fa fa-circle-o"></i> Add Product</a>
+                                    <li><a href="/Product/Edit"><i class="fa fa-circle-o"></i> Edit Product</a>
+                                    <li><a href="/Product/Delete"><i class="fa fa-circle-o"></i> Delete Product</a>
+                                </ul>
+
+
+
+
+                            </li>
+
                         </ul>
                     </li>
+
 
                 </ul>
             </section>
@@ -170,7 +207,7 @@
 
 
         </div><!-- /.content-wrapper -->
-        <footer class="main-footer" style="position:fixed; bottom:0;">
+        <footer class="main-footer" style=" bottom:0;  max-height:30px; text-align:center;">
             <strong>Copyright &copy; 2021 <a href="">ARSLAN TECH</a>.</strong> All rights reserved.
         </footer>
     </div><!-- ./wrapper -->
