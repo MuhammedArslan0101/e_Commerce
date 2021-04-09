@@ -104,19 +104,19 @@
         <!--
         New Products
         -->
-        <div class="well well-small">
+       
             <h3>New Products </h3>
             <hr class="soften" />
          
-            <div class="row-fluid">
+          
                 <ul class="thumbnails">
 
                     @foreach (var item in Model)
                     {
-                        <li class="span4">
+                        <li class="span3">
                             <div class="thumbnail">
 
-                                <a href="~/Home/ProductDetails/@item.Id"><img src="~/Content/images/@item.Image" alt=""></a>
+                                <a href="~/Home/ProductDetails/@item.Id"><img src="~/Content/images/@item.Image" style="max-height:207px; max-width:203px; min-width:205px ; min-height:267px;" alt=""></a>
                                 <div class="caption cntr">
                                     <p>@item.Name</p>
                                     <p><strong>@item.Price ₺</strong></p>
@@ -133,7 +133,3 @@
                 </ul>
             </div>
         </div>
-
-
-    </div>
-</div>

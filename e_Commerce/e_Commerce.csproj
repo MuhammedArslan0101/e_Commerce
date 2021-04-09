@@ -207,6 +207,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104090826494_InitialCreate.cs" />
+    <Compile Include="Migrations\202104090826494_InitialCreate.designer.cs">
+      <DependentUpon>202104090826494_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104091122230_EditDataInitializer.cs" />
+    <Compile Include="Migrations\202104091122230_EditDataInitializer.designer.cs">
+      <DependentUpon>202104091122230_EditDataInitializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +244,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104090826494_InitialCreate.resx">
+      <DependentUpon>202104090826494_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104091122230_EditDataInitializer.resx">
+      <DependentUpon>202104091122230_EditDataInitializer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

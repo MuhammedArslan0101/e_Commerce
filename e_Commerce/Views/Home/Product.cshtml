@@ -69,18 +69,18 @@
         <!--
         New Products
         -->
-        <div class="well well-small">
+        
             <h3>Our Products </h3>
            
-                <div class="row-fluid">
+                
                     <ul class="thumbnails">
                         @foreach (var item in Model)
                         {
-                            <li class="span4">
+                            <li class="span3">
                                 <div class="thumbnail">
                                     <a href="product_details.html" class="overlay"></a>
                                     <a class="zoomTool" href="product_details.html" title="add to cart" style="display: none;"><span class="icon-search"></span> QUICK VIEW</a>
-                                    <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/images/@item.Image" alt=""></a>
+                                    <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/images/@item.Image" style="max-height:207px; max-width:203px; min-width:205px ; min-height:267px;" alt=""></a>
                                     <div class="caption cntr">
                                         <p>@item.Name</p>
                                         <p><strong> @item.Price</strong></p>
@@ -100,5 +100,3 @@
 
 
         </div>
-    </div>
-</div>
