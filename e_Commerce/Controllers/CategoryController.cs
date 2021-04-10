@@ -7,12 +7,24 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using e_Commerce.Entity;
+using e_Commerce.Models;
 
 namespace e_Commerce.Controllers
 {
     public class CategoryController : Controller
     {
         private DataContext db = new DataContext();
+
+        public PartialViewResult _CategoryList()
+        {
+            var cats = db.categories.Select(x => new CategoryModel()
+            {
+                Id = x.Id,
+                Name =x.Name,
+                Count= x.Products.Count(),
+            }).ToList();
+            return PartialView(cats);
+        }
 
         // GET: Category
         public ActionResult Index()

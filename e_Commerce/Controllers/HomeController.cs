@@ -25,5 +25,10 @@ namespace e_Commerce.Controllers
         {
             return View(db.products.Where(i => i.Id == id).FirstOrDefault());
         }
+
+        public ActionResult ProductList(int id)
+        {
+            return View(db.products.Where(i=>i.CategoryId == id).ToList());
+        }
     }
 }

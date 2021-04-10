@@ -1,6 +1,10 @@
 ﻿@using e_Commerce.Entity
 @model IEnumerable<Product>
 
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="row">
     <div id="sidebar" class="span3">
@@ -61,34 +65,35 @@
         <!--
         New Products
         -->
-        
-            <h3>Our Products </h3>
-           
-                
-                    <ul class="thumbnails">
-                        @foreach (var item in Model)
-                        {
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a href="product_details.html" class="overlay"></a>
-                                    <a class="zoomTool" href="product_details.html" title="add to cart" style="display: none;"><span class="icon-search"></span> QUICK VIEW</a>
-                                    <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/images/@item.Image" style="max-height:207px; max-width:203px; min-width:205px ; min-height:267px;" alt=""></a>
-                                    <div class="caption cntr">
-                                        <p>@item.Name</p>
-                                        <p><strong> @item.Price</strong></p>
-                                        <h4><a class="shopBtn" href="/Home/ProductDetails/@item.Id" title="add to cart"> View </a></h4>
-                                       
-                                        <br class="clr">
-                                    </div>
-                                </div>
-                            </li>
-                      
-                        }
 
-                    </ul>
-                </div>
-          
+        <h3>Our Products </h3>
 
 
+        <ul class="thumbnails">
+            @foreach (var item in Model)
+            {
+                <li class="span3">
+                    <div class="thumbnail">
+                        <a href="product_details.html" class="overlay"></a>
+                        <a class="zoomTool" href="product_details.html" title="add to cart" style="display: none;"><span class="icon-search"></span> QUICK VIEW</a>
+                        <a href="/Home/ProductDetails/@item.Id"><img src="~/Content/images/@item.Image" style="max-height:207px; max-width:203px; min-width:205px ; min-height:267px;" alt=""></a>
+                        <div class="caption cntr">
+                            <p>@item.Name</p>
+                            <p><strong> @item.Price</strong></p>
+                            <h4><a class="shopBtn" href="/Home/ProductDetails/@item.Id" title="add to cart"> View </a></h4>
 
-        </div>
+                            <br class="clr">
+                        </div>
+                    </div>
+                </li>
+
+            }
+
+        </ul>
+    </div>
+
+
+
+
+</div>
+

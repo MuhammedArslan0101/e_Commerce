@@ -1,0 +1,11 @@
+﻿@using e_Commerce.Models
+@model IEnumerable<CategoryModel>
+
+
+<li><a href="/Home/Product"><span class="icon-chevron-right"></span>ALL Products</a></li>
+
+@foreach (var item in Model)
+{
+    <li><a href="/Home/ProductList/@item.Id"><span class="icon-chevron-right"></span>@item.Name [@item.Count]</a></li>
+
+}
