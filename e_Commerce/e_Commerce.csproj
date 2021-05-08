@@ -885,6 +885,7 @@
     <Content Include="Views\Category\_CategoryList.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
     <Content Include="Views\Home\_FeaturedProductList.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

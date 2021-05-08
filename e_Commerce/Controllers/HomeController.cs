@@ -16,6 +16,11 @@ namespace e_Commerce.Controllers
             return PartialView(db.products.Where(i => i.IsApproved && i.IsFeatured).Take(5).ToList());
 
         }
+        public PartialViewResult Slider()
+        {
+            return PartialView(db.products.Where(i => i.IsApproved && i.Slider).Take(5).ToList());
+
+        }
         // GET: Home
         public ActionResult Index()
         {
