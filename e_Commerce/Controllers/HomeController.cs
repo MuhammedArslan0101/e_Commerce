@@ -11,6 +11,11 @@ namespace e_Commerce.Controllers
     {
         DataContext db = new DataContext();
 
+        public PartialViewResult  _FeaturedProductList()
+        {
+            return PartialView(db.products.Where(i => i.IsApproved && i.IsFeatured).Take(5).ToList());
+
+        }
         // GET: Home
         public ActionResult Index()
         {

@@ -1,0 +1,19 @@
+﻿@using e_Commerce.Entity
+@model IEnumerable<Product>
+<h1> Featured Products</h1>
+    <ul class="nav nav-list promowrapper">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="thumbnail">
+                    <img src="~/Content/images/@item.Image" alt="bootstrap ecommerce templates">
+                    <div class="caption">
+                        <h4><a class="defaultBtn" href="/Home/ProductDetails/@item.Id">VIEW</a> <span class="pull-right">@item.Price ($)</span></h4>
+                    </div>
+                </div>
+            </li>
+            <li style="border:0"> &nbsp;</li>
+        }
+
+
+    </ul>
