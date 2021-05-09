@@ -13,7 +13,7 @@ namespace e_Commerce.App_Start
         {
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
             app.UseCookieAuthentication(new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions {
-            AuthenticationType ="ApplicationUser" , LoginPath = new PathString ("/Account/Login")
+            AuthenticationType ="ApplicationCookie" , LoginPath = new PathString ("/Account/Login")
             
             });
         }
