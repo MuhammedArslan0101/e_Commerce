@@ -886,6 +886,8 @@
     <Content Include="Views\Home\ProductList.cshtml" />
     <Content Include="Views\Home\_FeaturedProductList.cshtml" />
     <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\_SearchPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

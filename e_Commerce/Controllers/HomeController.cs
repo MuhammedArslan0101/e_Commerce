@@ -11,6 +11,17 @@ namespace e_Commerce.Controllers
     {
         DataContext db = new DataContext();
 
+        public ActionResult Search( string q)
+        {
+            //Call the approved products only to search in it 
+            var p = db.products.Where(i => i.IsApproved == true);
+            if (!string.IsNullOrEmpty(q))
+            {
+                p = p.Where(i => i.Name.Contains(q) || i.Description.Contains(q));
+            }
+            return View(p.ToList());
+
+        }
         public PartialViewResult  _FeaturedProductList()
         {
             return PartialView(db.products.Where(i => i.IsApproved && i.IsFeatured).Take(5).ToList());
