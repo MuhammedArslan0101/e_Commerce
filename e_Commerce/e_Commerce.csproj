@@ -860,6 +860,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup1.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -870,6 +871,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Identity\ApplicationRole.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="Migrations\202104090826494_InitialCreate.cs" />
     <Compile Include="Migrations\202104090826494_InitialCreate.designer.cs">
       <DependentUpon>202104090826494_InitialCreate.cs</DependentUpon>
