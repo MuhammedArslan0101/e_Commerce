@@ -25,6 +25,30 @@ namespace e_Commerce.Controllers
             RoleManager = new RoleManager<ApplicationRole>(roleStore);
 
         }
+        public ActionResult UserProfil()
+        {
+            var id = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+            var user = UserManager.FindById(id);
+            var data = new UserProfile()
+            {
+                id = user.Id,
+                Name = user.Name,
+                Surname = user.Surname,
+                Email = user.Email,
+                Username = user.UserName
+            };
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult UserProfil(UserProfile model)
+        {
+            var user = UserManager.FindById(model.id);
+            user.Name = model.Name;
+            user.Surname = model.Surname;
+            user.Email = model.Email;
+            UserManager.Update(user);
+            return View("Update");
+        }
         public ActionResult LogOut()
         {
             var authManager = HttpContext.GetOwinContext().Authentication;
