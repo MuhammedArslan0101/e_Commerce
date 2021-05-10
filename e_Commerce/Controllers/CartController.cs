@@ -17,6 +17,31 @@ namespace e_Commerce.Controllers
             return View(GetCart());
         }
 
+        public ActionResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+        [HttpPost]
+        public ActionResult Checkout(ShippingDetails model)
+        {
+            var cart = GetCart();
+            if (cart.CartLines.Count == 0)
+            {
+                ModelState.AddModelError("NoProductYet", "There are no products in your cart..");
+            }
+            if (ModelState.IsValid)
+            {
+               
+                cart.Clear();
+                return View("OrderCompleted");
+            }
+            else
+            {
+                return View(model);
+            }
+
+        }
+
         public PartialViewResult Summary()
         {
             return PartialView(GetCart());
