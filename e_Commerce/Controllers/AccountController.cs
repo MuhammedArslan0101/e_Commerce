@@ -25,6 +25,30 @@ namespace e_Commerce.Controllers
             RoleManager = new RoleManager<ApplicationRole>(roleStore);
 
         }
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        [Authorize] // only website user can change password
+        public ActionResult ChangePassword(ChangePasswordModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var result = UserManager.ChangePassword(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+                return View("Update");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid Change attempt.");
+            }
+         
+            return View(model);
+
+        }
         public ActionResult UserProfil()
         {
             var id = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
