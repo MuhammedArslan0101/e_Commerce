@@ -45,21 +45,20 @@
                     <div class="span7">
                         <h3>Name : @Model.Name </h3>
                         <hr class="soft">
-
-                        <form class="form-horizontal qtyFrm">
+                        @using (Html.BeginForm("AddToCart", "Cart", new { @class = "form-horizontal qtyFrm" }))
+                        {           
+                           @Html.HiddenFor(i=> i.Id)
                             <div class="control-group">
                                 <label class="control-label"><span>Price : @Model.Price</span></label>
                                 
                             </div>
-
-                         
                             <h4>Stock : @Model.Stock</h4>
                             <p>
                                Description : @Model.Description
                             </p><p>
                                 <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
                             </p>
-                        </form>
+                        }
                     </div>
                 </div>
                 <hr class="softn clr">
