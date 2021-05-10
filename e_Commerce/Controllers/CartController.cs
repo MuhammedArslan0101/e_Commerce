@@ -16,6 +16,31 @@ namespace e_Commerce.Controllers
         {
             return View(GetCart());
         }
+        private void SaveOrder(Cart cart, ShippingDetails model)
+        {
+            var order = new Order();
+            order.OrderNumber = "A" + (new Random()).Next(1111, 9999).ToString();
+            order.Total = cart.Total();
+            order.OrderDate = DateTime.Now;
+            order.UserName = User.Identity.Name;
+
+            order.Address = model.Address;
+            order.City = model.City;
+            order.District = model.District;
+            order.Neghborhood = model.Neghborhood;
+            order.PostCode = model.PostaCode;
+            order.OrdeLines = new List<OrderLine>();
+            foreach (var item in cart.CartLines)
+            {
+                var orderline = new OrderLine();
+                orderline.Quantity = item.Quantity;
+                orderline.Price = item.Quantity * item.Product.Price;
+                orderline.ProductId = item.Product.Id;
+                order.OrdeLines.Add(orderline);
+            }
+            db.orders.Add(order);
+            db.SaveChanges();
+        }
 
         public ActionResult Checkout()
         {
@@ -31,7 +56,7 @@ namespace e_Commerce.Controllers
             }
             if (ModelState.IsValid)
             {
-               
+                SaveOrder(cart, model);
                 cart.Clear();
                 return View("OrderCompleted");
             }

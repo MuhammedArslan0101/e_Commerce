@@ -872,6 +872,7 @@
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\DataContext.cs" />
     <Compile Include="Entity\DataInitializer.cs" />
+    <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -887,6 +888,10 @@
     <Compile Include="Migrations\202104091122230_EditDataInitializer.cs" />
     <Compile Include="Migrations\202104091122230_EditDataInitializer.designer.cs">
       <DependentUpon>202104091122230_EditDataInitializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105102335340_OrderTable.cs" />
+    <Compile Include="Migrations\202105102335340_OrderTable.designer.cs">
+      <DependentUpon>202105102335340_OrderTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -958,6 +963,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104091122230_EditDataInitializer.resx">
       <DependentUpon>202104091122230_EditDataInitializer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105102335340_OrderTable.resx">
+      <DependentUpon>202105102335340_OrderTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
