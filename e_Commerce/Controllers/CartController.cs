@@ -17,6 +17,16 @@ namespace e_Commerce.Controllers
             return View(GetCart());
         }
 
+        public ActionResult RemoveFromCart(int Id)
+        {
+            var product = db.products.FirstOrDefault(i => i.Id == Id);
+            if (product != null)
+            {
+                GetCart().DeleteProduct(product);
+            }
+            return RedirectToAction("Index");
+        }
+
         public ActionResult AddToCart(int Id)
         {
             var product = db.products.FirstOrDefault(i => i.Id == Id);

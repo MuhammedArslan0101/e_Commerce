@@ -14,39 +14,72 @@
             <div class="well well-small">
                 <h1>Check Out <small class="pull-right"> 2 Items are in the cart </small></h1>
                 <hr class="soften">
-
-                <table class="table table-bordered table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Quantity.</th>
-                            <th>Price</th>
-                            <th>Totla Price </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model.CartLines)
-                        {
+                @if (Model.CartLines.Count > 0)
+                {
+                    <table class="table table-bordered table-condensed">
+                        <thead>
                             <tr>
-                                <td><img width="100" src="~/Content/images/@item.Product.Image" alt=""></td>
-                                <td>@item.Product.Name</td>
-                                <td>@item.Product.Description</td>
-                                <td>@item.Quantity </td>
-                                <td>@item.Product.Price</td>
-                                <td>
-                                    @*c para birimi*@
-                                  @((item.Product.Price*item.Quantity).ToString("c"))
-                                </td>
-                                <td><button type="submit" class="btn btn-danger"><span class="icon-remove"></span>Delete</button></td>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Quantity.</th>
+                                <th>Price</th>
+                                <th>Totla Price </th>
+                                <th></th>
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.CartLines)
+                            {
+                                <tr>
+                                    <td><img width="100" src="~/Content/images/@item.Product.Image" alt=""></td>
+                                    <td>@item.Product.Name</td>
+                                    <td>@item.Product.Description</td>
+                                    <td>@item.Quantity </td>
+                                    <td>@item.Product.Price</td>
+                                    <td>
+                                        @*c para birimi*@
+                                        @((item.Product.Price*item.Quantity).ToString("c"))
+                                    </td>
+                                    <td>
+                                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                        {
+                                            //Id in hidden must be same the parametre in fun RemoveFromCart cause this id of product 
+                                            @Html.Hidden("Id", item.Product.Id)
+                                            <button type="submit" class="btn btn-danger"><span class="icon-remove"></span> Delete</button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th class="label label-warning" style="display:block">Toplam Tutar :@Model.Total().ToString("c")</th>
+                                <th></th>
+                            </tr>
 
 
-                    </tbody>
-                </table><br>
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <p>
+                           No Products .....yet
+                        </p>
+                    </div>
+                }
+
+
+
+
+
+
+                <br>
 
                 <a href="/Home/Index" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
                 <a href="login.html" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
