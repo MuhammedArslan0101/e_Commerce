@@ -1,0 +1,9 @@
+﻿@model e_Commerce.Models.Cart
+<li>
+    <a class="totalInCart" href="/Cart/Index">
+        <strong>
+            Total Amount ;   <span class="badge badge-warning pull-right"
+                                  style="line-height:18px;">@Model.Total().ToString("c")</span>
+                            </strong>
+                        </a>
+                    </li>

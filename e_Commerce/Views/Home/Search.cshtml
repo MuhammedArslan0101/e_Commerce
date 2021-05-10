@@ -12,7 +12,7 @@
                 @Html.Action("_CategoryList", "Category")
 
                 <li style="border:0"> &nbsp;</li>
-                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+                @Html.Action("Summary", "Cart")
             </ul>
         </div>
 

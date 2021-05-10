@@ -17,6 +17,15 @@ namespace e_Commerce.Controllers
             return View(GetCart());
         }
 
+        public PartialViewResult Summary()
+        {
+            return PartialView(GetCart());
+        }
+        public PartialViewResult Summary1()
+        {
+            return PartialView(GetCart());
+        }
+
         public ActionResult RemoveFromCart(int Id)
         {
             var product = db.products.FirstOrDefault(i => i.Id == Id);
