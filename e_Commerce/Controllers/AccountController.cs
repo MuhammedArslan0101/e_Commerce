@@ -1,4 +1,5 @@
-﻿using e_Commerce.Identity;
+﻿using e_Commerce.Entity;
+using e_Commerce.Identity;
 using e_Commerce.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -15,7 +16,7 @@ namespace e_Commerce.Controllers
     {
         private UserManager<ApplicationUser> UserManager;
         private RoleManager<ApplicationRole> RoleManager;
-
+        DataContext db = new DataContext();
         public AccountController()
         {
             var userStore = new UserStore<ApplicationUser>(new IdentityDataContext());
@@ -24,6 +25,20 @@ namespace e_Commerce.Controllers
             var roleStore = new RoleStore<ApplicationRole>(new IdentityDataContext());
             RoleManager = new RoleManager<ApplicationRole>(roleStore);
 
+        }
+        //Retrun the order of user 
+        public ActionResult Index()
+        {
+            var username = User.Identity.Name;
+            var orders = db.orders.Where(i => i.UserName == username).Select(i => new UserOrder
+            {
+                Id = i.Id,
+                OrderNumber = i.OrderNumber,
+                OrderState = i.OrderState,
+                OrderDate = i.OrderDate,
+                Total = i.Total
+            }).OrderByDescending(i => i.OrderDate).ToList();
+            return View(orders);
         }
 
         public ActionResult ChangePassword()
@@ -155,10 +170,6 @@ namespace e_Commerce.Controllers
             return View(model);
 
         }
-        // GET: Account
-        public ActionResult Index()
-        {
-            return View();
-        }
+      
     }
 }

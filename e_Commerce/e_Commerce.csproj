@@ -873,6 +873,7 @@
     <Compile Include="Entity\DataContext.cs" />
     <Compile Include="Entity\DataInitializer.cs" />
     <Compile Include="Entity\Order.cs" />
+    <Compile Include="Entity\OrderState.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -893,6 +894,10 @@
     <Compile Include="Migrations\202105102335340_OrderTable.designer.cs">
       <DependentUpon>202105102335340_OrderTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105110009064_AddColumnToOrderTableOrderState.cs" />
+    <Compile Include="Migrations\202105110009064_AddColumnToOrderTableOrderState.designer.cs">
+      <DependentUpon>202105110009064_AddColumnToOrderTableOrderState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -900,6 +905,7 @@
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
+    <Compile Include="Models\UserOrder.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -947,6 +953,7 @@
     <Content Include="Views\Cart\Summary1.cshtml" />
     <Content Include="Views\Cart\OrderCompleted.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -966,6 +973,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105102335340_OrderTable.resx">
       <DependentUpon>202105102335340_OrderTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105110009064_AddColumnToOrderTableOrderState.resx">
+      <DependentUpon>202105110009064_AddColumnToOrderTableOrderState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

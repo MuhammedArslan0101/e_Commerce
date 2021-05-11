@@ -23,7 +23,7 @@ namespace e_Commerce.Controllers
             order.Total = cart.Total();
             order.OrderDate = DateTime.Now;
             order.UserName = User.Identity.Name;
-
+            order.OrderState = OrderState.Expected; // ilk değer bekleniyor
             order.Address = model.Address;
             order.City = model.City;
             order.District = model.District;
