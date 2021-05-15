@@ -12,7 +12,7 @@
                 <li class="active">Your Cart</li>
             </ul>
             <div class="well well-small">
-                <h1>Check Out <small class="pull-right"> 2 Items are in the cart </small></h1>
+                <h1>Check Out <small class="pull-right">@Model.CartLines.Count - Items are in the cart </small></h1>
                 <hr class="soften">
                 @if (Model.CartLines.Count > 0)
                 {

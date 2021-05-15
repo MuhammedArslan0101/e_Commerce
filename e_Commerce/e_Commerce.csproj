@@ -903,6 +903,7 @@
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="Models\UserOrder.cs" />
@@ -954,6 +955,7 @@
     <Content Include="Views\Cart\OrderCompleted.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

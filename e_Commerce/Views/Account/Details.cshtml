@@ -1,0 +1,94 @@
+﻿@model e_Commerce.Models.OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="span12">
+
+        <div class="well well-small">
+
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Order No</th>
+                        <th>Order Date</th>
+                        <th>Total Amount ($)</th>
+                        <th>Order State</th>
+
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                        <td>@Model.OrderId</td>
+                        <td>@Model.OrderNumber</td>
+                        <td>@Model.OrderDate</td>
+                        <td>@Model.Total</td>
+                        <td>
+                            @if (Model.OrderState == e_Commerce.Entity.OrderState.Expected)
+                            {
+                            <a class="btn btn-danger">Order: Expected</a>
+                            }
+                            else if (Model.OrderState == e_Commerce.Entity.OrderState.Completed)
+                            {
+                                <a class="btn btn-success">Order: Completed</a>
+
+                            }
+                            else if (Model.OrderState == e_Commerce.Entity.OrderState.Packaged)
+                            {
+                              <a class="btn btn-info">Order: Packaged</a>
+
+                            }
+                            else if (Model.OrderState == e_Commerce.Entity.OrderState.Shipped)
+                            {
+                                 <a class="btn btn-primary">Order: Shipped</a>
+
+                            }
+                        </td>
+                        <td>@Model.Adres<br/>
+                            @Model.City<br/>
+                            @Model.District<br/>
+                            @Model.Neghborhood <br/>
+                            @Model.PostaCode <br/>
+
+                        </td>
+                    </tr>
+                 
+                </tbody>
+            </table><br>
+
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>Product Image </th>
+                        <th>Product Name</th>
+                        <th>Total Amount ($)</th>
+                        <th>Quantity</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderLines)
+                    {
+                        <tr>
+                            <td><img src="~/Content/images/@item.Image" height="75" width="75"/></td>
+                            <td>@item.ProductName</td>
+                            <td>@item.Price</td>
+                            <td>@item.Quantity</td>
+                            <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-success" target="_blank"> Product Details</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+

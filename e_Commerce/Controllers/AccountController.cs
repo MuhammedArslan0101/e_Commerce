@@ -170,6 +170,37 @@ namespace e_Commerce.Controllers
             return View(model);
 
         }
+        //Id sipariş Idisi
+        public ActionResult Details(int id)
+        {
+            var model = db.orders.Where(i => i.Id == id).Select(i => new OrderDetails()
+            {
+                // Order Details
+                OrderId = id,
+                OrderNumber = i.OrderNumber,
+                Total = i.Total,
+                OrderDate = i.OrderDate,
+                OrderState = i.OrderState,
+                Adres = i.Address,
+                City = i.City,
+                District = i.District,
+                Neghborhood = i.Neghborhood,
+                PostaCode = i.PostCode,
+                //Product Details
+                OrderLines = i.OrdeLines.Select(x => new OrderLineModel()
+                {
+                    ProductId = x.ProductId,
+                    Image = x.Product.Image,
+                    ProductName = x.Product.Name,
+                    Quantity = x.Quantity,
+                    Price = x.Price
+                }).ToList()
+
+
+            }).FirstOrDefault();// Tek bir sipariş gelecektir
+            return View(model);
+
+        }
       
     }
 }
