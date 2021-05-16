@@ -1,0 +1,101 @@
+﻿@using e_Commerce.Models
+@model OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <section class="content">
+        <div>
+            <h4>Order Information</h4>
+            <hr />
+            <div class="row">
+                @if (TempData["mesaj"] != null)
+                {
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>	<i class="icon fa fa-check"></i> successful!</h4>
+                    Your Information Has Been Saved..
+                </div>
+                }
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    Order State
+                </dt>
+
+                <dd>
+                    @using (Html.BeginForm("UpdateOrderState", "Order", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(i => i.OrderId)
+                        @Html.EnumDropDownListFor(i => i.OrderState, "select Order State", new { @class = "form-control" })
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    }
+                </dd>
+
+                <dt>
+                    User Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(Model => Model.UserName)
+                </dd>
+                <dt>
+                    Order No
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(Model => Model.OrderNumber)
+                </dd>
+                <dt>
+                    Total
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(Model => Model.Total)
+                </dd>
+                <dt>
+                    Order Date
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(Model => Model.OrderDate)
+                </dd>
+                <dt>
+                    Address
+                </dt>
+
+                <dd>
+                    Adres:  @Html.DisplayFor(Model => Model.Adres) <br />
+                    Neghborhood:  @Html.DisplayFor(Model => Model.Neghborhood) <br />
+                    District:  @Html.DisplayFor(Model => Model.District) <br />
+                    City:  @Html.DisplayFor(Model => Model.City) <br />
+                    Posta Kodu:  @Html.DisplayFor(Model => Model.PostaCode) <br />
+                </dd>
+            </dl>
+        </div>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Total Amount ($)</th>
+                    <th>Count</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderLines)
+                {
+                    <tr>
+                        <td><img src="~/Content/images/@item.Image" height="75" width="75" /></td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Price</td>
+                        <td>@item.Quantity</td>
+                        <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-success" target="_blank">Product Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table><br>
+
+    </section>

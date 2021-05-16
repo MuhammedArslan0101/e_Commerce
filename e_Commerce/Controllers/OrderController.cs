@@ -27,5 +27,44 @@ namespace e_Commerce.Controllers
             }).OrderByDescending(i => i.OrderDate).ToList();
             return View(orders);
         }
+
+        public ActionResult Details(int id)
+        {
+            var model = db.orders.Where(i => i.Id == id).Select(i => new OrderDetails()
+            {
+                OrderId = i.Id,
+                OrderNumber = i.OrderNumber,
+                Total = i.Total,
+                UserName = i.UserName,
+                OrderDate = i.OrderDate,
+                OrderState = i.OrderState,
+                Adres = i.Address,
+                City = i.City,
+                District = i.District,
+                Neghborhood = i.Neghborhood,
+                PostaCode = i.PostCode,
+                OrderLines = i.OrdeLines.Select(x => new OrderLineModel()
+                {
+                    ProductId = x.ProductId,
+                    Image = x.Product.Image,
+                    ProductName = x.Product.Name,
+                    Quantity = x.Quantity,
+                    Price = x.Price
+                }).ToList()
+            }).FirstOrDefault();
+            return View(model);
+        }
+        public ActionResult UpdateOrderState(int OrderId, OrderState Orderstate)
+        {
+            var order = db.orders.FirstOrDefault(i => i.Id == OrderId);
+            if (order != null)
+            {
+                order.OrderState = Orderstate;
+                db.SaveChanges();
+                TempData["mesaj"] = "info saved";
+                return RedirectToAction("Details", new { id = OrderId });
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
