@@ -1,0 +1,66 @@
+﻿@using e_Commerce.Models
+@model IEnumerable<AdminOrder>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Orders List</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Order No</th>
+                                <th>Order Date</th>
+                                <th>Order State</th>
+                                <th>Total Price</th>
+                                <th>Products Count</th>
+                                <th>Operation</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="text-align:center;">
+                                    <td>@item.Id</td>
+                                    <td>@item.OrderNumber</td>
+                                    <td>@item.OrderDate</td>
+                                    <td> @item.OrderState </td>
+                                    <td>@item.Total </td>
+                                    <td>@item.Count </td>
+                                    <td>
+                                        <a class="btn btn-primary" href="@Url.Action("Details" , new { id = item.Id })"> <i class="fa fa-fw fa-trash-o"></i> Details</a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Order No</th>
+                                <th>Order Date</th>
+                                <th>Order State</th>
+                                <th>Total Price</th>
+                                <th>Products Count</th>
+                                <th>Operation</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+

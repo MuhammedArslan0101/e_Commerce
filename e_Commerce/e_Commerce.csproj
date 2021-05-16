@@ -868,6 +868,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\DataContext.cs" />
@@ -899,6 +900,7 @@
       <DependentUpon>202105110009064_AddColumnToOrderTableOrderState.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminOrder.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
@@ -956,6 +958,7 @@
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
