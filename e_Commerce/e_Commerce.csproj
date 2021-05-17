@@ -969,6 +969,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Account\UserCount.cshtml" />
     <Content Include="Views\Account\UserList.cshtml" />
+    <Content Include="Views\Admin\Notification.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
