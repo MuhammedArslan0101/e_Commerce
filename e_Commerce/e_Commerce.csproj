@@ -960,6 +960,10 @@
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\ExpectedOrders.cshtml" />
+    <Content Include="Views\Order\CompletedOrders.cshtml" />
+    <Content Include="Views\Order\PackagedOrders.cshtml" />
+    <Content Include="Views\Order\ShippedOrders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

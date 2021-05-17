@@ -66,5 +66,31 @@ namespace e_Commerce.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult ExpectedOrders()
+        {
+            var model = db.orders.Where(i => i.OrderState == OrderState.Expected).ToList();
+            return View(model);
+                
+        }
+        public ActionResult CompletedOrders()
+        {
+            var model = db.orders.Where(i => i.OrderState == OrderState.Completed).ToList();
+            return View(model);
+
+        }
+        public ActionResult PackagedOrders()
+        {
+            var model = db.orders.Where(i => i.OrderState == OrderState.Packaged).ToList();
+            return View(model);
+
+        }
+
+        public ActionResult ShippedOrders()
+        {
+            var model = db.orders.Where(i => i.OrderState == OrderState.Shipped).ToList();
+            return View(model);
+
+        }
     }
 }
