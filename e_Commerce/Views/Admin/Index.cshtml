@@ -1,0 +1,96 @@
+﻿@model e_Commerce.Models.StateModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>@Model.ProductCount</h3>
+                        <p>Product Count</p>
+                    </div>
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </div>
+                    <a href="/Product/Index" class="small-box-footer" target="_blank">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>@Model.OrdertCount</h3>
+                        <p>Orders Count</p>
+                    </div>
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-stats"></i>
+                    </div>
+                    <a href="/Order/Index" class="small-box-footer" target="_blank">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>@Model.ExpectedOrderCount</h3>
+                        <p>Expected Orders Count</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="/Order/ExpectedOrders" class="small-box-footer" target="_blank">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>@Model.CompletedOrderCount</h3>
+                        <p>Completed Orders Count</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="/Order/CompletedOrders" class="small-box-footer" target="_blank">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-purple">
+                    <div class="inner">
+                        <h3>@Model.PackegedOrderCount</h3>
+                        <p>Packeged Orders Count</p>
+                    </div>
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-stats"></i>
+                    </div>
+                    <a href="/Order/PackagedOrders" class="small-box-footer" target="_blank">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div><!-- ./col -->
+
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-maroon">
+                    <div class="inner">
+                        <h3>@Model.ShippedOrderCount</h3>
+                        <p>Shipped Orders Count</p>
+                    </div>
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-stats"></i>
+                    </div>
+                    <a href="/Order/ShippedOrders" class="small-box-footer" target="_blank">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div><!-- ./col -->
+
+
+        </div>
+
+    </section>
+
