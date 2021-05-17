@@ -29,9 +29,18 @@
 
         </div>
         <div class="span9">
+            @if (TempData["loginfaild"] != null)
+            {
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4>	<i class="icon fa fa-check"></i> Login faild!</h4>
+                   User Name OR Password is not correct...
+                </div>
+            }
             <ul class="breadcrumb">
                 <li><a href="/Home/Index">Home</a> <span class="divider">/</span></li>
                 <li class="active">Login</li>
+
             </ul>
             <hr class="soft" />
             <div class="well">
@@ -39,7 +48,7 @@
                 {
 
                     <h3>Your Personal Details</h3>
-                
+
                     <div class="control-group">
                         <label class="control-label" for="inputFname">Username <sup>*</sup></label>
                         <div class="controls">
@@ -50,7 +59,7 @@
                         </div>
                     </div>
 
-                 
+
                     <div class="control-group">
                         <label class="control-label" for="inputFname">Password <sup>*</sup></label>
                         <div class="controls">
@@ -60,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
 
                     <div class="control-group">
                         <div class="controls">

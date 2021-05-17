@@ -125,6 +125,7 @@ namespace e_Commerce.Controllers
                 }
                 else
                 {
+                    TempData["loginfaild"] = "Login faild";
                     ModelState.AddModelError("LoginUserError", "Boyle bir kullanıcı bulunmadi");
                     return RedirectToAction("Login", "Account");
 
