@@ -967,6 +967,8 @@
     <Content Include="Views\Order\PackagedOrders.cshtml" />
     <Content Include="Views\Order\ShippedOrders.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Account\UserCount.cshtml" />
+    <Content Include="Views\Account\UserList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

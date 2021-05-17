@@ -202,6 +202,18 @@ namespace e_Commerce.Controllers
             return View(model);
 
         }
+
+        public PartialViewResult UserCount ()
+        {
+            var u = UserManager.Users;
+            return PartialView(u);
+        }
+        public ActionResult UserList()
+        {
+            var u = UserManager.Users;
+            return View(u);
+
+        }
       
     }
 }
