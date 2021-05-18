@@ -40,7 +40,7 @@ namespace e_Commerce.Controllers
             }).OrderByDescending(i => i.OrderDate).ToList();
             return View(orders);
         }
-
+        [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
@@ -64,6 +64,7 @@ namespace e_Commerce.Controllers
             return View(model);
 
         }
+        [Authorize]
         public ActionResult UserProfil()
         {
             var id = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
@@ -79,6 +80,7 @@ namespace e_Commerce.Controllers
             return View(data);
         }
         [HttpPost]
+        [Authorize]
         public ActionResult UserProfil(UserProfile model)
         {
             var user = UserManager.FindById(model.id);
@@ -202,12 +204,13 @@ namespace e_Commerce.Controllers
             return View(model);
 
         }
-
+        [Authorize(Roles ="admin")]
         public PartialViewResult UserCount ()
         {
             var u = UserManager.Users;
             return PartialView(u);
         }
+        [Authorize(Roles = "admin")]
         public ActionResult UserList()
         {
             var u = UserManager.Users;

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace e_Commerce.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         DataContext db = new DataContext();

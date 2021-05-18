@@ -44,7 +44,7 @@
                                     <td>
                                         @using (Html.BeginForm("RemoveFromCart", "Cart"))
                                         {
-                                            //Id in hidden must be same the parametre in fun RemoveFromCart cause this id of product 
+                                            //Id in hidden must be same the parametre in fun RemoveFromCart cause this id of product
                                             @Html.Hidden("Id", item.Product.Id)
                                             <button type="submit" class="btn btn-danger"><span class="icon-remove"></span> Delete</button>
                                         }
@@ -69,7 +69,7 @@
                 {
                     <div class="alert alert-warning">
                         <p>
-                           No Products .....yet
+                            No Products .....yet
                         </p>
                     </div>
                 }
@@ -80,9 +80,17 @@
 
 
                 <br>
-
                 <a href="/Home/Index" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
-                <a href="/Cart/Checkout" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
+
+                @if (Request.IsAuthenticated)
+                {
+                    <a href="/Cart/Checkout" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
+                }
+                else
+                {
+                    <a href="/Account/Login" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
+
+                }
 
             </div>
         </div>
