@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  
+
                     <tr>
                         <td>@Model.OrderId</td>
                         <td>@Model.OrderNumber</td>
@@ -32,7 +32,7 @@
                         <td>
                             @if (Model.OrderState == e_Commerce.Entity.OrderState.Expected)
                             {
-                            <a class="btn btn-danger">Order: Expected</a>
+                                <a class="btn btn-danger">Order: Expected</a>
                             }
                             else if (Model.OrderState == e_Commerce.Entity.OrderState.Completed)
                             {
@@ -41,52 +41,54 @@
                             }
                             else if (Model.OrderState == e_Commerce.Entity.OrderState.Packaged)
                             {
-                              <a class="btn btn-info">Order: Packaged</a>
+                                <a class="btn btn-info">Order: Packaged</a>
 
                             }
                             else if (Model.OrderState == e_Commerce.Entity.OrderState.Shipped)
                             {
-                                 <a class="btn btn-primary">Order: Shipped</a>
+                                <a class="btn btn-primary">Order: Shipped</a>
 
                             }
                         </td>
-                        <td>@Model.Adres<br/>
-                            @Model.City<br/>
-                            @Model.District<br/>
-                            @Model.Neghborhood <br/>
-                            @Model.PostaCode <br/>
+                        <td>
+                            @Model.Adres<br />
+                        @Model.City<br />
+                        @Model.District<br />
+                        @Model.Neghborhood <br />
+                        @Model.PostaCode <br />
 
-                        </td>
-                    </tr>
-                 
-                </tbody>
-            </table><br>
+                    </td>
+                </tr>
 
-            <table class="table table-bordered table-condensed">
-                <thead>
+            </tbody>
+        </table><br>
+
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>Product Image </th>
+                    <th>Product Name</th>
+                    <th>Total Amount ($)</th>
+                    <th>Quantity</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderLines)
+                {
                     <tr>
-                        <th>Product Image </th>
-                        <th>Product Name</th>
-                        <th>Total Amount ($)</th>
-                        <th>Quantity</th>
-
-                        <th></th>
+                        <td><img src="~/Content/images/@item.Image" height="75" width="75" /></td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Price</td>
+                        <td>@item.Quantity</td>
+                        <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-success" target="_blank"> Product Details</a></td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.OrderLines)
-                    {
-                        <tr>
-                            <td><img src="~/Content/images/@item.Image" height="75" width="75"/></td>
-                            <td>@item.ProductName</td>
-                            <td>@item.Price</td>
-                            <td>@item.Quantity</td>
-                            <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-success" target="_blank"> Product Details</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                }
+            </tbody>
+        </table>
 
+        <a>@Html.ActionLink("Pay Now", "pay", "Order", new { OrderId = Model.OrderId }, new { @class = "btn btn-primary" })</a>
 
         </div>
     </div>
