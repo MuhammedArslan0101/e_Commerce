@@ -116,20 +116,16 @@ namespace e_Commerce.Controllers
 
         }
 
-      
-
-        [Authorize]
-        //[HttpPost]
-        public ActionResult pay(int OrderId)
+        public ActionResult ode(int OrderId)
         {
-
+            TempData["OrderId"] = OrderId;
             var order = db.orders.Where(i => i.Id == OrderId).Select(i => new OrderDetails()
             {
                 // Order Details
                 OrderId = OrderId,
                 OrderNumber = i.OrderNumber,
                 Total = i.Total,
-                UserName=i.UserName,
+                UserName = i.UserName,
                 OrderDate = i.OrderDate,
                 OrderState = i.OrderState,
                 Adres = i.Address,
@@ -149,6 +145,28 @@ namespace e_Commerce.Controllers
 
 
             }).FirstOrDefault();// Tek bir sipariş gelecektir
+
+            TempData["order"] = order;
+            return View();
+
+        }
+
+        [Authorize]
+        //[HttpPost]
+        public ActionResult pay(string CardName , string CardNum , int Cvc , int ExpMonth , int Expyear)
+        {
+            var oi = TempData["OrderId"];
+            var OrderId = Convert.ToInt32(oi);
+            var uc = new UserCard{
+                CardName = CardName ,
+                CardNum = CardNum ,
+                Cvc = Cvc ,
+                ExpMonth = ExpMonth ,
+                Expyear = Expyear,
+            };
+
+            var order = TempData["order"] as OrderDetails;
+
             var user = UserManager.Users.SingleOrDefault(i => i.UserName == order.UserName);
            
             if (order != null)
@@ -172,11 +190,11 @@ namespace e_Commerce.Controllers
 
 
                 PaymentCard paymentCard = new PaymentCard();
-                paymentCard.CardHolderName = "Muhammed ARSLAN";
-                paymentCard.CardNumber = "5528790000000008";
-                paymentCard.ExpireMonth = "12";
-                paymentCard.ExpireYear = "2030";
-                paymentCard.Cvc = "123";
+                paymentCard.CardHolderName = uc.CardName;
+                paymentCard.CardNumber = uc.CardNum;
+                paymentCard.ExpireMonth = uc.ExpMonth.ToString();
+                paymentCard.ExpireYear = uc.Expyear.ToString();
+                paymentCard.Cvc = uc.Cvc.ToString();
                 paymentCard.RegisterCard = 0;
                 request.PaymentCard = paymentCard;
 
